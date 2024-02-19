@@ -395,26 +395,6 @@
               "public_key":"lNBhd4R7YKAeLisPgaZGBeGaGthuXD7-eww-QGcLGws",
               "short_id":""
           }
-        },
-        {
-        "packet_encoding": "xudp",
-        "transport": {
-            "type": "grpc",
-            "service_name": "grpc"
-        }
-        },
-        {
-            "type": "direct",
-            "tag": "direct"
-        },
-        {
-            "type": "block",
-            "tag": "block"
-        },
-        {
-            "type": "dns",
-            "tag": "dns-out"
-        }
     ],
     "experimental": {
         "cache_file": {
