@@ -171,8 +171,237 @@
     ],
     "outbounds": [
         {
-            // 粘贴你的客户端配置，需要保留 "tag": "proxy"
-            "tag": "proxy"
+        "type": "vless",
+        "tag": "uscoi xtls-reality",
+        "server":"132.226.121.112",
+        "server_port":8881,
+        "uuid":"6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "flow":"",
+        "packet_encoding":"xudp",
+        "tls":{
+            "enabled":true,
+            "server_name":"addons.mozilla.org",
+            "utls":{
+                "enabled":true,
+                "fingerprint":"chrome"
+            },
+            "reality":{
+                "enabled":true,
+                "public_key":"lNBhd4R7YKAeLisPgaZGBeGaGthuXD7-eww-QGcLGws",
+                "short_id":""
+            }
+        },
+        "multiplex": {
+          "enabled": true,
+          "protocol": "h2mux",
+          "max_connections": 8,
+          "min_streams": 16,
+          "padding": true
+        }
+      },
+      {
+        "type": "hysteria2",
+        "tag": "uscoi hysteria2",
+        "server": "132.226.121.112",
+        "server_port": 8882,
+        "up_mbps": 200,
+        "down_mbps": 1000,
+        "password": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+            "enabled": true,
+            "insecure": true,
+            "server_name": "",
+            "alpn": [ "h3" ]
+        }
+      },
+      {
+        "type": "tuic",
+        "tag": "uscoi tuic",
+        "server": "132.226.121.112",
+        "server_port": 8883,
+        "uuid": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "password": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "congestion_control": "bbr",
+        "udp_relay_mode": "native",
+        "zero_rtt_handshake": false,
+        "heartbeat": "10s",
+        "tls": {
+            "enabled": true,
+            "insecure": true,
+            "server_name": "",
+            "alpn": [ "h3" ]
+        }
+      },
+      {
+        "type": "shadowsocks",
+        "tag": "uscoi ShadowTLS",
+        "method": "2022-blake3-aes-128-gcm",
+        "password": "o3+DYuBlcJsj+mbPiip+YA==",
+        "detour": "shadowtls-out",
+        "udp_over_tcp": false,
+        "multiplex": {
+          "enabled": true,
+          "protocol": "h2mux",
+          "max_connections": 8,
+          "min_streams": 16,
+          "padding": true
+        }
+      },
+      {
+        "type": "shadowtls",
+        "tag": "shadowtls-out",
+        "server": "132.226.121.112",
+        "server_port": 8884,
+        "version": 3,
+        "password": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+          "enabled": true,
+          "server_name": "addons.mozilla.org",
+          "utls": {
+            "enabled": true,
+            "fingerprint": "chrome"
+          }
+        }
+      },
+      {
+        "type": "shadowsocks",
+        "tag": "uscoi shadowsocks",
+        "server": "132.226.121.112",
+        "server_port": 8885,
+        "method": "aes-128-gcm",
+        "password": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "multiplex": {
+          "enabled": true,
+          "protocol": "h2mux",
+          "max_connections": 8,
+          "min_streams": 16,
+          "padding": true
+        }
+      },
+      {
+        "type": "trojan",
+        "tag": "uscoi trojan",
+        "server": "132.226.121.112",
+        "server_port": 8886,
+        "password": "6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+          "enabled":true,
+          "insecure": true,
+          "server_name":"",
+          "utls": {
+            "enabled":true,
+            "fingerprint":"chrome"
+          }
+        },
+        "multiplex": {
+          "enabled":true,
+          "protocol":"h2mux",
+          "max_connections": 8,
+          "min_streams": 16,
+          "padding": true
+        }
+      },
+      {
+        "type": "vmess",
+        "tag": "uscoi vmess-ws",
+        "server":"bing.com",
+        "server_port":80,
+        "uuid":"6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "transport": {
+          "type":"ws",
+          "path":"/6ce668b7-0f92-4e69-96b6-ce606c5aee6f-vmess",
+          "headers": {
+            "Host": "vps.webkylin.eu.org"
+          },
+          "max_early_data":2048,
+          "early_data_header_name":"Sec-WebSocket-Protocol"
+        },
+        "multiplex": {
+          "enabled":true,
+          "protocol":"h2mux",
+          "max_streams":16,
+          "padding": true
+        }
+      },
+      {
+        "type": "vless",
+        "tag": "uscoi vless-ws-tls",
+        "server":"bing.com",
+        "server_port":443,
+        "uuid":"6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+          "enabled":true,
+          "server_name":"shop.webkylin.eu.org",
+          "utls": {
+            "enabled":true,
+            "fingerprint":"chrome"
+          }
+        },
+        "transport": {
+          "type":"ws",
+          "path":"/6ce668b7-0f92-4e69-96b6-ce606c5aee6f-vless",
+          "headers": {
+            "Host": "shop.webkylin.eu.org"
+          },
+          "max_early_data":2048,
+          "early_data_header_name":"Sec-WebSocket-Protocol"
+        },
+        "multiplex": {
+          "enabled":true,
+          "protocol":"h2mux",
+          "max_streams":16,
+          "padding": true
+        }
+      },
+      {
+        "type": "vless",
+        "tag": "uscoi h2-reality",
+        "server": "132.226.121.112",
+        "server_port": 8889,
+        "uuid":"6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+          "enabled":true,
+          "server_name":"addons.mozilla.org",
+          "utls": {
+            "enabled":true,
+            "fingerprint":"chrome"
+          },
+          "reality":{
+              "enabled":true,
+              "public_key":"lNBhd4R7YKAeLisPgaZGBeGaGthuXD7-eww-QGcLGws",
+              "short_id":""
+          }
+        },
+        "packet_encoding": "xudp",
+        "transport": {
+            "type": "http"
+        }
+      },
+      {
+        "type": "vless",
+        "tag": "uscoi grpc-reality",
+        "server": "132.226.121.112",
+        "server_port": 8890,
+        "uuid":"6ce668b7-0f92-4e69-96b6-ce606c5aee6f",
+        "tls": {
+          "enabled":true,
+          "server_name":"addons.mozilla.org",
+          "utls": {
+            "enabled":true,
+            "fingerprint":"chrome"
+          },
+          "reality":{
+              "enabled":true,
+              "public_key":"lNBhd4R7YKAeLisPgaZGBeGaGthuXD7-eww-QGcLGws",
+              "short_id":""
+          }
+        },
+        {
+        "packet_encoding": "xudp",
+        "transport": {
+            "type": "grpc",
+            "service_name": "grpc"
+        }
         },
         {
             "type": "direct",
