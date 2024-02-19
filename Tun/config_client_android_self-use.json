@@ -171,7 +171,7 @@
     ],
     "outbounds": [
         {
-        "type": "vless",
+                    "type": "vless",
         "tag": "uscoi xtls-reality",
         "server":"132.226.121.112",
         "server_port":8881,
@@ -395,7 +395,13 @@
               "public_key":"lNBhd4R7YKAeLisPgaZGBeGaGthuXD7-eww-QGcLGws",
               "short_id":""
           }
-        }   
+        },
+        "packet_encoding": "xudp",
+        "transport": {
+            "type": "grpc",
+            "service_name": "grpc"
+        }
+      }
     ],
     "experimental": {
         "cache_file": {
